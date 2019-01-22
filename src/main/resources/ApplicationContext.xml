@@ -36,6 +36,13 @@
         <property name="soundEnable" value="true"/>
     </bean>
 
+    <bean id="t1000Empty" class="com.juja.spring.impls.robot.ModelT1000">
+        <constructor-arg ref="sonyHead" index="0"/>
+        <constructor-arg ref="sonyBody" index="1"/>
+        <constructor-arg ref="sonyHand" index="2"/>
+        <constructor-arg ref="sonyLeg" index="3"/>
+    </bean>
+
     <bean id="sonyBody" class="com.juja.spring.impls.robot.sony.SonyBody"/>
     <bean id="sonyHand" class="com.juja.spring.impls.robot.sony.SonyHand"/>
     <bean id="sonyHead" class="com.juja.spring.impls.robot.sony.SonyHead"/>
