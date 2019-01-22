@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -13,7 +14,10 @@
                            http://www.springframework.org/schema/data/jpa
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <bean id="t1000" class="com.juja.spring.impls.robot.ModelT1000">
+    <bean id="t1000" class="com.juja.spring.impls.robot.ModelT1000"
+        p:head-ref="sonyHead" p:body-ref="sonyBody"
+          p:hand-ref="sonyHand" p:leg-ref="sonyLeg">
+
         <!--<constructor-arg ref="sonyHead" index="0"/>-->
         <!--<constructor-arg ref="sonyBody" index="1"/>-->
         <!--<constructor-arg ref="sonyHand" index="2"/>-->
@@ -22,10 +26,10 @@
         <!--<constructor-arg value="2020" index="5" type="int"/>-->
         <!--<constructor-arg value="true" index="6" type="boolean"/>-->
 
-        <property name="head" ref="sonyHead"/>
-        <property name="body" ref="sonyBody"/>
-        <property name="hand" ref="sonyHand"/>
-        <property name="leg" ref="sonyLeg"/>
+        <!--<property name="head" ref="sonyHead"/>-->
+        <!--<property name="body" ref="sonyBody"/>-->
+        <!--<property name="hand" ref="sonyHand"/>-->
+        <!--<property name="leg" ref="sonyLeg"/>-->
 
         <property name="color" value="blue"/>
         <property name="year" value="2020"/>
