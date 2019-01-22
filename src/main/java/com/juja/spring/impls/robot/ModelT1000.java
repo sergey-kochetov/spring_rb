@@ -1,8 +1,10 @@
 package com.juja.spring.impls.robot;
 
 import com.juja.spring.interfaces.*;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
-public class ModelT1000 implements Robot {
+public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
     private Head head;
     private Body body;
     private Hand hand;
@@ -116,5 +118,15 @@ public class ModelT1000 implements Robot {
 
     public void setSoundEnable(boolean soundEnable) {
         this.soundEnable = soundEnable;
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println(this + " method destroy");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(this + " method init");
     }
 }
