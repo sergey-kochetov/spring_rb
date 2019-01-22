@@ -14,15 +14,22 @@
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <bean id="t1000" class="com.juja.spring.impls.robot.ModelT1000">
-        <!--<constructor-arg ref="sonyHead"/>-->
-        <!--<constructor-arg ref="sonyBody"/>-->
-        <!--<constructor-arg ref="sonyHand"/>-->
-        <!--<constructor-arg ref="sonyLeg"/>-->
+        <!--<constructor-arg ref="sonyHead" index="0"/>-->
+        <!--<constructor-arg ref="sonyBody" index="1"/>-->
+        <!--<constructor-arg ref="sonyHand" index="2"/>-->
+        <!--<constructor-arg ref="sonyLeg" index="3"/>-->
+        <!--<constructor-arg value="blue" index="4" type="String"/>-->
+        <!--<constructor-arg value="2020" index="5" type="int"/>-->
+        <!--<constructor-arg value="true" index="6" type="boolean"/>-->
 
         <property name="head" ref="sonyHead"/>
         <property name="body" ref="sonyBody"/>
         <property name="hand" ref="sonyHand"/>
         <property name="leg" ref="sonyLeg"/>
+
+        <property name="color" value="blue"/>
+        <property name="year" value="2020"/>
+        <property name="soundEnable" value="true"/>
     </bean>
 
     <bean id="sonyBody" class="com.juja.spring.impls.robot.sony.SonyBody"/>
