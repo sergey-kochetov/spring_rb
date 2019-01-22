@@ -13,8 +13,16 @@
                            http://www.springframework.org/schema/data/jpa
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-   <bean id="t1000" class="com.juja.spring.impls.robot.ModelT1000">
+    <bean id="t1000" class="com.juja.spring.impls.robot.ModelT1000">
+        <constructor-arg ref="sonyHead"/>
+        <constructor-arg ref="sonyBody"/>
+        <constructor-arg ref="sonyHand"/>
+        <constructor-arg ref="sonyLeg"/>
+    </bean>
 
-   </bean>
+    <bean id="sonyBody" class="com.juja.spring.impls.robot.sony.SonyBody"/>
+    <bean id="sonyHand" class="com.juja.spring.impls.robot.sony.SonyHand"/>
+    <bean id="sonyHead" class="com.juja.spring.impls.robot.sony.SonyHead"/>
+    <bean id="sonyLeg" class="com.juja.spring.impls.robot.sony.SonyLeg"/>
 
 </beans>
