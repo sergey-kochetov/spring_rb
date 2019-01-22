@@ -13,7 +13,10 @@
                            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
                            http://www.springframework.org/schema/data/jpa
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
-       default-lazy-init="true" >
+       default-lazy-init="true">
+
+    <import resource="toshiba_context.xml"/>
+    <import resource="sony_context.xml"/>
 
     <bean id="t1000" class="com.juja.spring.impls.robot.ModelT1000"
           p:head-ref="sonyHead" p:body-ref="sonyBody"
@@ -21,8 +24,6 @@
         <property name="color" value="blue"/>
         <property name="year" value="2020"/>
         <property name="soundEnable" value="true"/>
-
-
     </bean>
 
     <bean id="t1000Empty" class="com.juja.spring.impls.robot.ModelT1000">
@@ -46,11 +47,6 @@
         <property name="hand" ref="sonyHand"/>
         <property name="leg" ref="sonyLeg"/>
     </bean>
-
-    <bean id="sonyBody" class="com.juja.spring.impls.robot.sony.SonyBody" scope="prototype"/>
-    <bean id="sonyHand" class="com.juja.spring.impls.robot.sony.SonyHand"/>
-    <bean id="sonyHead" class="com.juja.spring.impls.robot.sony.SonyHead"/>
-    <bean id="sonyLeg" class="com.juja.spring.impls.robot.sony.SonyLeg"/>
 
     <bean class="com.juja.spring.main.MyBeanPostProcessor"/>
 
