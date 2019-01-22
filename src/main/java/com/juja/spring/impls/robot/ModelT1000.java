@@ -1,14 +1,13 @@
 package com.juja.spring.impls.robot;
 
-import com.juja.spring.interfaces.*;
+import com.juja.spring.interfaces.Body;
+import com.juja.spring.interfaces.Hand;
+import com.juja.spring.interfaces.Head;
+import com.juja.spring.interfaces.Leg;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
-    private Head head;
-    private Body body;
-    private Hand hand;
-    private Leg leg;
+public class ModelT1000 extends BaseModel implements InitializingBean, DisposableBean {
 
     private String color;
     private int year;
@@ -17,28 +16,24 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
     public ModelT1000() {
     }
 
-    public ModelT1000(Head head, Body body, Hand hand, Leg leg) {
-        this.head = head;
-        this.body = body;
-        this.hand = hand;
-        this.leg = leg;
-    }
     public ModelT1000(Head head, Body body, Hand hand, Leg leg, String color, int year, boolean soundEnable) {
-        this.head = head;
-        this.body = body;
-        this.hand = hand;
-        this.leg = leg;
+        super(head, body, hand, leg);
         this.color = color;
         this.year = year;
         this.soundEnable = soundEnable;
     }
 
+    public ModelT1000(String color, int year, boolean soundEnable) {
+        this.color = color;
+        this.year = year;
+        this.soundEnable = soundEnable;
+    }
 
     @Override
     public void action() {
-        head.think();
-        body.work();
-        leg.step();
+        getHead().think();
+        getBody().work();
+        getLeg().step();
         System.out.println("Color: " + color);
         System.out.println("Year: " + year);
         System.out.println("soundEnable: " + soundEnable);
@@ -46,9 +41,9 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
 
     @Override
     public void fire() {
-        head.think();
-        hand.manipulate();
-        leg.run();
+        getHead().think();
+        getHand().manipulate();
+        getLeg().run();
     }
 
     @Override
@@ -62,38 +57,6 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
 
     public void destroyObject() {
         System.out.println("destroy...");
-    }
-
-    public Head getHead() {
-        return head;
-    }
-
-    public void setHead(Head head) {
-        this.head = head;
-    }
-
-    public Body getBody() {
-        return body;
-    }
-
-    public void setBody(Body body) {
-        this.body = body;
-    }
-
-    public Hand getHand() {
-        return hand;
-    }
-
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
-
-    public Leg getLeg() {
-        return leg;
-    }
-
-    public void setLeg(Leg leg) {
-        this.leg = leg;
     }
 
     public String getColor() {
