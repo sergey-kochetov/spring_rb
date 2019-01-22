@@ -54,6 +54,14 @@ public class ModelT1000 implements Robot {
         System.out.println("T1000 dancing...");
     }
 
+    public void initObject() {
+        System.out.println("init...");
+    }
+
+    public void destroyObject() {
+        System.out.println("destroy...");
+    }
+
     public Head getHead() {
         return head;
     }

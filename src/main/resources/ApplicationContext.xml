@@ -15,11 +15,15 @@
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <bean id="t1000" class="com.juja.spring.impls.robot.ModelT1000"
-        p:head-ref="sonyHead" p:body-ref="sonyBody"
-          p:hand-ref="sonyHand" p:leg-ref="sonyLeg">
+          p:head-ref="sonyHead" p:body-ref="sonyBody"
+          p:hand-ref="sonyHand" p:leg-ref="sonyLeg"
+            init-method="initObject"
+            destroy-method="destroyObject">
         <property name="color" value="blue"/>
         <property name="year" value="2020"/>
         <property name="soundEnable" value="true"/>
+
+
     </bean>
 
     <bean id="t1000Empty" class="com.juja.spring.impls.robot.ModelT1000">
@@ -44,7 +48,7 @@
         <property name="leg" ref="sonyLeg"/>
     </bean>
 
-    <bean id="sonyBody" class="com.juja.spring.impls.robot.sony.SonyBody"/>
+    <bean id="sonyBody" class="com.juja.spring.impls.robot.sony.SonyBody" scope="prototype"/>
     <bean id="sonyHand" class="com.juja.spring.impls.robot.sony.SonyHand"/>
     <bean id="sonyHead" class="com.juja.spring.impls.robot.sony.SonyHead"/>
     <bean id="sonyLeg" class="com.juja.spring.impls.robot.sony.SonyLeg"/>
