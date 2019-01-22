@@ -9,9 +9,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Start {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-//        ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
-//        t1000.action();
+        ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
+        t1000.action();
 
+        //CreateThreeRobot(context);
+    }
+
+    private static void CreateThreeRobot(ApplicationContext context) {
         RobotConveyor t1000Conveyor = (RobotConveyor) context.getBean("t1000Conveyor");
 
         Robot t1 = t1000Conveyor.createRobot();

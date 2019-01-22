@@ -24,7 +24,12 @@
         <constructor-arg value="white" index="4" type="String"/>
         <constructor-arg value="2028" index="5" type="int"/>
         <constructor-arg value="true" index="6" type="boolean"/>
+
+        <replaced-method name="action" replacer="actionReplacer">
+
+        </replaced-method>
     </bean>
+    <bean id="actionReplacer" class="com.juja.spring.impls.robot.ActionReplacer"/>
 
     <bean id="t1000Conveyor" class="com.juja.spring.impls.conveyor.T1000Conveyor">
         <lookup-method name="createRobot" bean="t1000"/>
