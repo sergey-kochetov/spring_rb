@@ -12,7 +12,8 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
                            http://www.springframework.org/schema/data/jpa
-                           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+                           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+       default-lazy-init="true">
 
     <bean id="sonyBody" class="com.juja.spring.impls.robot.sony.SonyBody"/>
     <bean id="sonyHand" class="com.juja.spring.impls.robot.sony.SonyHand"/>
