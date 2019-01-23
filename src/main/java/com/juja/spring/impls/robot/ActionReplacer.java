@@ -1,6 +1,5 @@
 package com.juja.spring.impls.robot;
 
-import com.juja.spring.interfaces.Robot;
 import org.springframework.beans.factory.support.MethodReplacer;
 
 import java.lang.reflect.Method;

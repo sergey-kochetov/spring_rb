@@ -10,9 +10,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Start {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        //createOneRobot(context);
+        createOneRobot(context);
         //CreateThreeRobot(context);
-        createPoolRobots(context);
+        //createPoolRobots(context);
+        //searcPoolGoldenRobots(context);
+    }
+    private static void searcPoolGoldenRobots(ApplicationContext context) {
+        T1000Pool pool = (T1000Pool) context.getBean("t1000GoldenPool");
+        pool.action();
     }
 
     private static void createPoolRobots(ApplicationContext context) {
