@@ -1,12 +1,13 @@
 package com.juja.spring.impls.robot;
 
-import com.juja.spring.interfaces.Body;
-import com.juja.spring.interfaces.Hand;
-import com.juja.spring.interfaces.Head;
-import com.juja.spring.interfaces.Leg;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ModelT1000 extends BaseModel implements InitializingBean, DisposableBean {
 
     private String color;
@@ -16,17 +17,22 @@ public class ModelT1000 extends BaseModel implements InitializingBean, Disposabl
     public ModelT1000() {
     }
 
-    public ModelT1000(Head head, Body body, Hand hand, Leg leg, String color, int year, boolean soundEnable) {
-        super(head, body, hand, leg);
+    public ModelT1000(String color, int year, boolean soundEnable) {
         this.color = color;
         this.year = year;
         this.soundEnable = soundEnable;
     }
 
-    public ModelT1000(String color, int year, boolean soundEnable) {
-        this.color = color;
-        this.year = year;
-        this.soundEnable = soundEnable;
+    @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public ModelT1000 model1() {
+        return new ModelT1000();
+    }
+
+    @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public ModelT1000 model2() {
+        return new ModelT1000("black", 2019, true);
     }
 
     @Override
@@ -49,14 +55,6 @@ public class ModelT1000 extends BaseModel implements InitializingBean, Disposabl
     @Override
     public void dance() {
         System.out.println("T1000 dancing...");
-    }
-
-    public void initObject() {
-        System.out.println("init...");
-    }
-
-    public void destroyObject() {
-        System.out.println("destroy...");
     }
 
     public String getColor() {

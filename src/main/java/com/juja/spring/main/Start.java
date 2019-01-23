@@ -10,7 +10,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Start {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        createOneRobot(context);
+        createOneRobot(context, "model1");
+        createOneRobot(context, "model2");
         //CreateThreeRobot(context);
         //createPoolRobots(context);
         //searcPoolGoldenRobots(context);
@@ -25,8 +26,8 @@ public class Start {
         t1000Pool.action();
     }
 
-    private static void createOneRobot(ApplicationContext context) {
-        ModelT1000 t1000 = (ModelT1000) context.getBean("t1000");
+    private static void createOneRobot(ApplicationContext context, String bean) {
+        ModelT1000 t1000 = (ModelT1000) context.getBean(bean);
         t1000.action();
     }
 
